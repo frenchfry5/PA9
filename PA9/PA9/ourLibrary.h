@@ -23,3 +23,9 @@ using std::ofstream; //ofstream
 using std::fstream; //fstream
 using std::stack; //stack
 using std::vector; //vector
+using sf::VideoMode;
+using sf::Clock;
+using sf::RenderWindow;
+using std::optional;
+using sf::Event;
+using sf::Color;

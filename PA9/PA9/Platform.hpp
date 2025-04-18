@@ -12,6 +12,7 @@ private:
 
 	bool mCanMove;
 	sf::RectangleShape shape;
+	
 
 };
 

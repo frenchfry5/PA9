@@ -10,6 +10,7 @@ public:
 protected:
 
 	bool mIsDangerous;
+	Color color;
 
 };
 
