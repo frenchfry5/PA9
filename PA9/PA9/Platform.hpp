@@ -7,6 +7,7 @@ public:
 	Platform(bool movement = false);
 	~Platform();
 
+
 private:
 
 	bool mCanMove;
