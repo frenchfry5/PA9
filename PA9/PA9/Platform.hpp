@@ -1,7 +1,7 @@
 #pragma once
 #include "Obstacle.hpp"
 
-class Platform
+class Platform : public Obstacle
 {
 public:
 	Platform(bool movement = false);
@@ -12,7 +12,6 @@ private:
 
 	bool mCanMove;
 	sf::RectangleShape shape;
-	sf::Vector2f velocity;
 
 };
 

@@ -43,7 +43,7 @@ public:
 private:
     sf::RectangleShape shape;
     float speed = 200;
-    float vertVelocity = 0;
-    float gravity = 3;
+    float vertVelocity = 4;
+    float gravity = 0.5;
 
 };

@@ -1,7 +1,9 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "Player.hpp"
-#include <iostream>
+#include "Platform.hpp"
+#include "ourLibrary.h"
 
 int main() {
     sf::Clock clock;
@@ -17,6 +19,8 @@ int main() {
 
         // Update logic
         player.update(deltaTime);
+
+        
 
         // Render
         window.clear();
