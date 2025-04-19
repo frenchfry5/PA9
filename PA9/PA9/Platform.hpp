@@ -4,14 +4,16 @@
 class Platform : public Obstacle
 {
 public:
-	Platform(bool movement = false);
+	Platform(const Vector2f& size, const Vector2f& position, vector<Platform>& platformVector, bool movement = false);
 	~Platform();
 
+
+	sf::FloatRect getBounds() const;
 
 private:
 
 	bool mCanMove;
-	sf::RectangleShape shape;
+	sf::RectangleShape mShape;
 	
 
 };

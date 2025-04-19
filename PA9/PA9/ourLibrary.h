@@ -29,3 +29,7 @@ using sf::RenderWindow;
 using std::optional;
 using sf::Event;
 using sf::Color;
+using sf::Vector2f;
+using sf::Keyboard::isKeyPressed;
+using sf::Keyboard::Key;
+using sf::FloatRect;

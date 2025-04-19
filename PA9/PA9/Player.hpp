@@ -1,25 +1,38 @@
 #pragma once
 #include "GameObject.hpp"
+#include "global.hpp"
 
 class Player : public GameObject {
 public:
-    Player(const sf::Vector2f& position) {
+    Player(const Vector2f& position) {
         shape.setSize({ 50.f, 50.f });
-        shape.setFillColor(sf::Color::Green);
+        shape.setFillColor(Color::Green);
         shape.setPosition(position);
     }
 
     void update(float deltaTime) override {
+
+
+        for (auto& platform : platformVector)
+        {
+            FloatRect playerBounds = this->getBounds();
+            FloatRect platformBounds = this->getBounds();
+
+
+        }
+
+
+
         // up
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
+        if (isKeyPressed(Key::W)) {
             shape.move({ 0, (vertVelocity * deltaTime) });
         }
         // left
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+        if (isKeyPressed(Key::A)) {
             shape.move({ -(speed * deltaTime) , 0 });
         }
         // right
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+        if (isKeyPressed(Key::D)) {
             shape.move({ speed * deltaTime , 0 });
         }
         
@@ -43,7 +56,7 @@ public:
 private:
     sf::RectangleShape shape;
     float speed = 200;
-    float vertVelocity = 4;
-    float gravity = 0.5;
+    float vertVelocity = 1;
+    float gravity = 3;
 
 };

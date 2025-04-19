@@ -9,7 +9,6 @@ int main() {
     Clock clock;
     RenderWindow window(VideoMode{ {800, 600} }, "Game Object Demo");
     Player player({ 100.f, 100.f });
-    vector<Platform> platforms;
 
     while (window.isOpen()) {
         float deltaTime = clock.restart().asSeconds();
