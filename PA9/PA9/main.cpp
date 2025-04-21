@@ -24,7 +24,7 @@ int main() {
         }
 
         // Update logic
-        player.update(deltaTime);
+        player.update(deltaTime, map);
       
         // Render
         window.clear();

@@ -39,14 +39,27 @@ public:
 		grid.clear();
 		grid = vector(image.getSize().x, vector(image.getSize().y, 0));
 		
-		for (float x = 0; x < grid.size(); x++) {
+		for (size_t x = 0; x < grid.size(); x++) {
 			for (size_t y = 0; y < grid[x].size(); y++) {
 				Color colorPixel = image.getPixel(sf::Vector2u(x, y));
 				if (colorPixel == Color::Black) { grid[x][y] = 1; } // 1 for block
 			}
 		}
 	}
+	bool isColliding(const sf::FloatRect& bounds) const {
+		for (size_t x = 0; x < grid.size(); x++) {
+			for (size_t y = 0; y < grid[x].size(); y++) {
+				if (grid[x][y] == 1) {
+					sf::FloatRect tileRect(sf::Vector2f(x * tileSize, y * tileSize), sf::Vector2f(tileSize, tileSize));
+					if (bounds.findIntersection(tileRect)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 private:
 	vector <vector<int>> grid;
-	const float tileSize = 32;
+	const float tileSize = 60;
 };

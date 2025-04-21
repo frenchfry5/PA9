@@ -10,10 +10,10 @@ public:
         shape.setPosition(position);
     }
 
-    void update(float deltaTime) override {
+    void update(float deltaTime, const Map& map) override {
         // up
         if (isKeyPressed(Key::W)) {
-            shape.move({ 0, (vertVelocity * deltaTime) });
+            shape.move({ 0, -(speed * deltaTime) });
         }
         // left
         if (isKeyPressed(Key::A)) {
@@ -25,9 +25,15 @@ public:
         }
 
         // gravity as in falling
-        vertVelocity += gravity;
-        shape.move({ 0, vertVelocity * deltaTime });
+        
 
+        if (!map.isColliding(shape.getGlobalBounds())) {
+            vertVelocity += gravity;
+            shape.move({ 0, vertVelocity * deltaTime });
+        }
+        else {
+            vertVelocity = 0;
+        }
     }
     void render(sf::RenderWindow& window) override {
         window.draw(shape);
@@ -45,5 +51,4 @@ private:
     float speed = 200;
     float vertVelocity = 1;
     float gravity = 3;
-
 };

@@ -8,7 +8,7 @@ public:
 	~Platform();
 
 
-    void update(float deltaTime) override {
+    void update(float deltaTime, const Map& map) override {
     }
 
     void render(sf::RenderWindow& window) override {
