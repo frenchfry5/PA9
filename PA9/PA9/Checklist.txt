@@ -1,0 +1,21 @@
+Checklist to be Finished
+
+Textures for Character
+Textures for Walls/Platforms/Moving/ overall fucking everything
+
+fix jumping mech
+fix phasing through walls
+
+
+create an actual level
+
+maybe create camera following player around?
+
+enemies -
+floating
+goombas? of some sort
+koopas? of some sort
+
+add way to know youre done with game/level
+
+maybe menu? (optional)

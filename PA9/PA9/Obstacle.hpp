@@ -7,9 +7,10 @@ public:
 	Obstacle();
 	~Obstacle();
 
-private:
+protected:
 
-	bool isDangerous;
+	bool mIsDangerous;
+	Color mColor;
 
 };
 
