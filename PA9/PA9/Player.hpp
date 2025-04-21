@@ -11,18 +11,6 @@ public:
     }
 
     void update(float deltaTime) override {
-
-
-        for (auto& platform : platformVector)
-        {
-            FloatRect playerBounds = this->getBounds();
-            FloatRect platformBounds = this->getBounds();
-
-
-        }
-
-
-
         // up
         if (isKeyPressed(Key::W)) {
             shape.move({ 0, (vertVelocity * deltaTime) });
@@ -35,16 +23,15 @@ public:
         if (isKeyPressed(Key::D)) {
             shape.move({ speed * deltaTime , 0 });
         }
-        
+
         // gravity as in falling
         vertVelocity += gravity;
         shape.move({ 0, vertVelocity * deltaTime });
-    }
 
+    }
     void render(sf::RenderWindow& window) override {
         window.draw(shape);
     }
-
     sf::Vector2f getPosition() const override {
         return shape.getPosition();
     }

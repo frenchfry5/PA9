@@ -8,7 +8,20 @@ public:
 	~Platform();
 
 
-	sf::FloatRect getBounds() const;
+    void update(float deltaTime) override {
+    }
+
+    void render(sf::RenderWindow& window) override {
+        window.draw(mShape);
+    }
+
+    Vector2f getPosition() const override {
+        return mShape.getPosition();
+    }
+
+    FloatRect getBounds() const override;
+
+
 
 private:
 

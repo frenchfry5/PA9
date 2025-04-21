@@ -1,7 +1,7 @@
 //for holding using statements/other libraries
 
 #pragma once
-
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
 #include <fstream>
