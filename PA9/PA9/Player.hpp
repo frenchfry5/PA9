@@ -24,8 +24,8 @@ public:
         }
         
         // gravity as in falling
-        vertVelocity += gravity;
-        shape.move({ 0, vertVelocity * deltaTime });
+       /* vertVelocity += gravity;
+        shape.move({ 0, vertVelocity * deltaTime });*/
     }
 
     void render(sf::RenderWindow& window) override {
