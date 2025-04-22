@@ -84,6 +84,9 @@ public:
     void render(RenderWindow& window) override {
         window.draw(shape);
     }
+    sf::Vector2f getPosition() const override {
+        return shape.getPosition();
+    }
 
 private:
     sf::RectangleShape shape;

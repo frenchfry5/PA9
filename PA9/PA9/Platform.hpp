@@ -34,7 +34,6 @@ public:
 						tile.setFillColor(sf::Color::White);
 						break;
 					}
-
 					tile.setPosition(sf::Vector2f(x * tileSize, y * tileSize));
 					window.draw(tile);
 				}
@@ -92,7 +91,12 @@ public:
 		}
 		return 0; 
 	}
+
+	sf::Vector2f getPosition() const override {
+		return Pos;
+	}
 private:
+	sf::Vector2f Pos;
 	vector <vector<int>> grid;
 	const float tileSize = 45;
 };

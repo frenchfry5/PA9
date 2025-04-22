@@ -11,6 +11,9 @@ int main() {
     RenderWindow window(VideoMode{ {800, 600} }, "Game Object Demo");
     //vector<Platform>& platformVector;
     Player player({ 100, 100 });
+    sf::View camera;
+    camera.setSize(Vector2f(800, 600));
+    camera.setCenter(Vector2f(400, 300));
     Platform platforms;
     sf::Image image;
     image.loadFromFile("DemoMap2.png");
@@ -25,6 +28,8 @@ int main() {
 
         // Update logic
         player.update(deltaTime, platforms);
+        camera.setCenter(player.getPosition());
+        window.setView(camera);
       
         // Render
         window.clear();
