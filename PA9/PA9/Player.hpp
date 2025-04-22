@@ -50,8 +50,6 @@ public:
                 shape.move({ speed * deltaTime , 0 });
             }
         }
-
-
         // if anything on the map is not colliding with the player, then the player must be in the air, so falling
         // else the player must be on the ground and not falling
         if (!pl.isColliding(shape.getGlobalBounds())) {
