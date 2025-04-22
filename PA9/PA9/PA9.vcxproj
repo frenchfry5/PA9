@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="DemoMap.png" />
+    <Image Include="DemoMap2.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
