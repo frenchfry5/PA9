@@ -13,7 +13,11 @@ public:
     void update(float deltaTime, const Map& map) override {
         // up
         if (isKeyPressed(Key::W) && isGrounded) {
-            shape.move({ 0, -(jump * deltaTime) });
+            sf::FloatRect nextPos = shape.getGlobalBounds();
+            nextPos.position.y -= jump * deltaTime;
+            if (!map.isColliding(nextPos)) {
+                shape.move({ 0, -(jump * deltaTime) });
+            }
         }
         // left
         if (isKeyPressed(Key::A)) {
@@ -32,11 +36,10 @@ public:
                 shape.move({ speed * deltaTime , 0 });
             }
         }
-
+        vertVelocity += gravity;
        
         if (!map.isColliding(shape.getGlobalBounds())) {
             // gravity as in falling
-            vertVelocity += gravity;
             shape.move({ 0, vertVelocity * deltaTime });
         }
         else {
@@ -58,7 +61,7 @@ public:
 private:
     sf::RectangleShape shape;
     bool isGrounded = false;
-    float jump = 500;
+    float jump = 600;
     float speed = 200;
     float vertVelocity = 1;
     float gravity = 3;
