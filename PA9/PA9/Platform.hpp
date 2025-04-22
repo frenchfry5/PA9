@@ -4,7 +4,7 @@
 class Platform : public Obstacle
 {
 public:
-	Platform(const Vector2f& size, const Vector2f& position, vector<Platform>& platformVector, bool movement = false);
+    Platform(const Vector2f& size, const Vector2f& position, bool movement = false);
 	~Platform();
 
 
@@ -12,7 +12,11 @@ public:
     }
 
     void render(sf::RenderWindow& window) override {
-        window.draw(mShape);
+        sf::RectangleShape shape;
+        shape.setSize(mShape.getSize());
+        shape.setFillColor(mColor);
+        shape.setPosition(mShape.getPosition());
+        window.draw(shape);
     }
 
     Vector2f getPosition() const override {
@@ -20,11 +24,7 @@ public:
     }
 
     FloatRect getBounds() const override;
-
-
-
 private:
-
 	bool mCanMove;
 	sf::RectangleShape mShape;
 	

@@ -1,6 +1,6 @@
 #include "Platform.hpp"
 
-Platform::Platform(const Vector2f& size, const Vector2f& position, vector<Platform>& platformVector, bool movement)
+Platform::Platform(const Vector2f& size, const Vector2f& position, bool movement)
 {
 	this->mCanMove = movement;
 	this->mIsDangerous = false;
@@ -9,7 +9,6 @@ Platform::Platform(const Vector2f& size, const Vector2f& position, vector<Platfo
 	this->mShape.setPosition(position);
 	this->mShape.setFillColor(mColor);
 	
-	platformVector.push_back(*this);
 }
 
 Platform::~Platform()

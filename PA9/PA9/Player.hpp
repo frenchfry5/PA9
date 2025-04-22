@@ -23,6 +23,8 @@ public:
         if (isKeyPressed(Key::A)) {
             sf::FloatRect nextPos = shape.getGlobalBounds();
             nextPos.position.x -= speed * deltaTime;
+            nextPos.position.y += 1;
+            nextPos.position.y -= 2;
             if (!map.isColliding(nextPos)) {
                 shape.move({ -(speed * deltaTime) , 0 });
             }
@@ -32,6 +34,8 @@ public:
         if (isKeyPressed(Key::D)) {
             sf::FloatRect nextPos = shape.getGlobalBounds();
             nextPos.position.x += speed * deltaTime;
+                        nextPos.position.y += 1;
+            nextPos.position.y -= 2;
             if (!map.isColliding(nextPos)) {
                 shape.move({ speed * deltaTime , 0 });
             }

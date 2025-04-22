@@ -6,18 +6,6 @@ public:
 	Map() {};
 	~Map() {};
 
-	void createTest(size_t width, size_t height) {
-		grid = vector(width, vector(height, 1));
-		int last = 0;
-		for (auto& column : grid) {
-			for (auto& cell : column) {
-				last = cell = ~last;
-			}
-			if (width % 2 == 0) {
-				last = ~last;
-			}
-		}
-	}
 	void Draw(RenderWindow& window) {
 		int x = 0;
 		for (const auto& column : grid) {
@@ -25,7 +13,7 @@ public:
 			for (const auto& cell : column) {
 				if (cell) {
 					sf::RectangleShape tile;
-					tile.setSize(sf::Vector2f(tileSize, tileSize)); // You had a typo: "tileSiz"
+					tile.setSize(sf::Vector2f(tileSize, tileSize));
 					tile.setFillColor(sf::Color::Blue);
 					tile.setPosition(sf::Vector2f(x * tileSize, y * tileSize));
 					window.draw(tile);
