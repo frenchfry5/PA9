@@ -143,7 +143,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="global.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Platform.cpp" />
@@ -152,15 +151,10 @@
   <ItemGroup>
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="GameObject.hpp" />
-    <ClInclude Include="global.hpp" />
-    <ClInclude Include="Map.hpp" />
     <ClInclude Include="Obstacle.hpp" />
-    <ClInclude Include="ourLibrary.h" />
+    <ClInclude Include="ourLibrary.hpp" />
     <ClInclude Include="Platform.hpp" />
     <ClInclude Include="Player.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="DemoMap.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
