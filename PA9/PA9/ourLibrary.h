@@ -33,3 +33,4 @@ using sf::Vector2f;
 using sf::Keyboard::isKeyPressed;
 using sf::Keyboard::Key;
 using sf::FloatRect;
+using sf::RectangleShape;
