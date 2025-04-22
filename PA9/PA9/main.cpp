@@ -11,10 +11,13 @@ int main() {
     RenderWindow window(VideoMode{ {800, 600} }, "Game Object Demo");
     //vector<Platform>& platformVector;
     Player player({ 100, 100 });
-    Map map;
+    sf::View camera;
+    camera.setSize(Vector2f(800, 600));
+    camera.setCenter(Vector2f(400, 300));
+    Platform platforms;
     sf::Image image;
-    image.loadFromFile("DemoMap.png");
-    map.LoadFromImage(image);
+    image.loadFromFile("DemoMap2.png");
+    platforms.LoadFromImage(image);
     //map.createTest(11, 11);
     while (window.isOpen()) {
         float deltaTime = clock.restart().asSeconds();
@@ -24,11 +27,13 @@ int main() {
         }
 
         // Update logic
-        player.update(deltaTime, map);
+        player.update(deltaTime, platforms);
+        camera.setCenter(player.getPosition());
+        window.setView(camera);
       
         // Render
         window.clear();
-        map.Draw(window);
+        platforms.render(window);
         player.render(window);
         window.display();
     }

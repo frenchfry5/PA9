@@ -1,67 +1,97 @@
 #pragma once
 #include "GameObject.hpp"
-#include "global.hpp"
+#include "Platform.hpp"
 
 class Player : public GameObject {
 public:
+
+
     Player(const Vector2f& position) {
-        shape.setSize({ 50.f, 50.f });
+        shape.setSize({ 50, 50 });
         shape.setFillColor(Color::Green);
         shape.setPosition(position);
     }
 
-    void update(float deltaTime, const Map& map) override {
+    void update(float deltaTime) override {
+
+    }
+    void update(float deltaTime, const Platform& pl) {
         // up
         if (isKeyPressed(Key::W) && isGrounded) {
+            // check if any collision above
             sf::FloatRect nextPos = shape.getGlobalBounds();
             nextPos.position.y -= jump * deltaTime;
-            if (!map.isColliding(nextPos)) {
+
+            // if there is no collision, then move player
+            if (!pl.isColliding(nextPos)) {
                 shape.move({ 0, -(jump * deltaTime) });
             }
         }
         // left
         if (isKeyPressed(Key::A)) {
+            // check if any collision to the left
             sf::FloatRect nextPos = shape.getGlobalBounds();
             nextPos.position.x -= speed * deltaTime;
-            if (!map.isColliding(nextPos)) {
+            nextPos.position.y += 1;
+            nextPos.position.y -= 2;
+            if (!pl.isColliding(nextPos)) {
                 shape.move({ -(speed * deltaTime) , 0 });
             }
 
         }
         // right
         if (isKeyPressed(Key::D)) {
+            // check if any collision to the right
             sf::FloatRect nextPos = shape.getGlobalBounds();
             nextPos.position.x += speed * deltaTime;
-            if (!map.isColliding(nextPos)) {
+            nextPos.position.y += 1;
+            nextPos.position.y -= 2;
+            if (!pl.isColliding(nextPos)) {
                 shape.move({ speed * deltaTime , 0 });
             }
         }
-        vertVelocity += gravity;
-       
-        if (!map.isColliding(shape.getGlobalBounds())) {
+
+
+        // if anything on the map is not colliding with the player, then the player must be in the air, so falling
+        // else the player must be on the ground and not falling
+        if (!pl.isColliding(shape.getGlobalBounds())) {
             // gravity as in falling
+            vertVelocity += gravity;
             shape.move({ 0, vertVelocity * deltaTime });
         }
         else {
             vertVelocity = 0;
             isGrounded = true;
         }
+        int tileType = pl.getTileType(shape.getGlobalBounds());
+
+        switch (tileType) {
+        case 1: // Normal solid block
+            cout << "Normal block" << endl;
+            break;
+        case 2: // Lava
+            cout << "Lava block" << endl;
+            break;
+        case 3: // Ice
+            cout << "Ice block" << endl;
+            break;
+
+        case 4: // Slime
+            cout << "Slime block" << endl;
+            break;
+        }
     }
-    void render(sf::RenderWindow& window) override {
+    void render(RenderWindow& window) override {
         window.draw(shape);
     }
     sf::Vector2f getPosition() const override {
         return shape.getPosition();
     }
 
-    sf::FloatRect getBounds() const override {
-        return shape.getGlobalBounds();
-    }
-
 private:
     sf::RectangleShape shape;
     bool isGrounded = false;
-    float jump = 600;
+    float jump = 750;
     float speed = 200;
     float vertVelocity = 1;
     float gravity = 3;

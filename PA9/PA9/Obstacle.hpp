@@ -7,6 +7,12 @@ public:
 	Obstacle();
 	~Obstacle();
 
+	void update(float deltaTime) override {
+
+	}
+	void render(RenderWindow& window) override {
+
+	}
 protected:
 
 	bool mIsDangerous;

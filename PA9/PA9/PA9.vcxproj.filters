@@ -61,5 +61,8 @@
     <Image Include="DemoMap.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="DemoMap2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
