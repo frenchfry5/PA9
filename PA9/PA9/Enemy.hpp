@@ -1,14 +1,22 @@
 #pragma once
 #include "GameObject.hpp"
+#include "Player.hpp"
 
 class Enemy : public GameObject
 {
 public:
-	Enemy();
+	Enemy(const Vector2f& position);
 	~Enemy();
 
+    void render(RenderWindow& window) override;
+    bool isColliding(const FloatRect& bounds) const;
+    void update(float deltaTime, const Map& map, Player& player);
+
 private:
-    sf::RectangleShape shape;
-    float speed = 200;
+    CircleShape mShape;
+    bool mIsGrounded = false;
+    float mSpeed = 200;
+    float mVertVelocity = 1;
+    float mGravity = 3;
 };
 

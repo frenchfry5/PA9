@@ -9,9 +9,10 @@
 #include <cstdlib>
 #include <cstdio>
 #include <ctime>
-#include <Windows.h>
+#include <windows.h>
 #include <stack>
 #include <vector>
+
 
 using std::cin; // cin >>
 using std::cout; // cout <<
@@ -34,3 +35,4 @@ using sf::Keyboard::isKeyPressed;
 using sf::Keyboard::Key;
 using sf::FloatRect;
 using sf::RectangleShape;
+using sf::CircleShape;
