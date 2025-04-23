@@ -30,9 +30,6 @@ public:
 					case 4: // Slime
 						tile.setFillColor(sf::Color::Green);
 						break;
-					default:
-						tile.setFillColor(sf::Color::White);
-						break;
 					}
 					tile.setPosition(sf::Vector2f(x * tileSize, y * tileSize));
 					window.draw(tile);

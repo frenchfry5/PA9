@@ -50,11 +50,12 @@ public:
                 shape.move({ speed * deltaTime , 0 });
             }
         }
+
+        vertVelocity += gravity;
         // if anything on the map is not colliding with the player, then the player must be in the air, so falling
         // else the player must be on the ground and not falling
         if (!pl.isColliding(shape.getGlobalBounds())) {
             // gravity as in falling
-            vertVelocity += gravity;
             shape.move({ 0, vertVelocity * deltaTime });
         }
         else {
@@ -71,13 +72,21 @@ public:
             cout << "Lava block" << endl;
             break;
         case 3: // Ice
+            speed = 600;
             cout << "Ice block" << endl;
             break;
 
         case 4: // Slime
+            isGrounded = false;
+            vertVelocity = -jump * 1.5f; 
+            shape.move({ 0, vertVelocity * deltaTime });
             cout << "Slime block" << endl;
             break;
+        default:
+            speed = 200;
+            break;
         }
+        
     }
     void render(RenderWindow& window) override {
         window.draw(shape);
