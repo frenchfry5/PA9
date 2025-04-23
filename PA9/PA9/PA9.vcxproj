@@ -157,6 +157,12 @@
     <ClInclude Include="Platform.hpp" />
     <ClInclude Include="Player.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="credit.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Audio\SFX\platformerJump.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

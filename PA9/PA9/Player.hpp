@@ -8,17 +8,33 @@ public:
         shape.setSize({ 50.f, 50.f });
         shape.setFillColor(Color::Green);
         shape.setPosition(position);
+
     }
 
     void update(float deltaTime, const Map& map) override {
+        
+        
+
         // up
         if (isKeyPressed(Key::W) && isGrounded) {
             sf::FloatRect nextPos = shape.getGlobalBounds();
             nextPos.position.y -= jump * deltaTime;
             if (!map.isColliding(nextPos)) {
                 shape.move({ 0, -(jump * deltaTime) });
+                }
 
+            //jump sfx
+            SoundBuffer sfxBuffer;
+
+            if (!sfxBuffer.loadFromFile("platformerJump.wav"))
+            {
+                cout << "ERROR loading platformerJump.wav" << std::endl;
             }
+
+            Sound sound(sfxBuffer);
+
+            sound.play();
+            Sleep(4000);
         }
         // left
         if (isKeyPressed(Key::A)) {

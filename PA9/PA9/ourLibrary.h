@@ -38,3 +38,5 @@ using sf::FloatRect;
 using sf::RectangleShape;
 using sf::CircleShape;
 using sf::Music;
+using sf::SoundBuffer;
+using sf::Sound;
