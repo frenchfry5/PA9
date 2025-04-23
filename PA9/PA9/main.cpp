@@ -45,8 +45,7 @@ int main() {
         }
 
         // Update logic
-        player.update(deltaTime, platforms, bug);
-        bug.update(deltaTime, platforms);
+
 
         camera.setCenter(player.getPosition());
         window.setView(camera);
@@ -54,14 +53,19 @@ int main() {
         window.clear();
         platforms.render(window);
         bug.render(window);
-        if (player.checkDead()) {
-            deathText.setPosition(window.getView().getCenter());
-            window.draw(deathText);
-            restartText.setPosition(window.getView().getCenter());
-            window.draw(restartText);
-        }
         if (!player.checkDead()) {
             player.render(window);
+            player.update(deltaTime, platforms, bug);
+            bug.update(deltaTime, platforms);
+        }
+        if (player.checkDead()) {
+            deathText.setPosition(window.getView().getCenter() - Vector2f({175, 100}));
+            window.draw(deathText);
+            restartText.setPosition(window.getView().getCenter() - Vector2f({ 175, 100 }));
+            window.draw(restartText);\
+                if (isKeyPressed(Key::R)) {
+                    player.resetState(spawnPos);
+            }
         }
 
         window.display();

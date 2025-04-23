@@ -94,10 +94,11 @@ public:
         return shape.getPosition();
     }
     void resetState(Vector2f spawnPosition) {
-        bool isGrounded = false;
-        float speed = 60;
-        float vertVelocity = 1;
-        float gravity = 3;
+        isDead = false;
+        isGrounded = false;
+        speed = 60;
+        vertVelocity = 1;
+        gravity = 3;
         shape.setPosition(spawnPosition);
     }
 
