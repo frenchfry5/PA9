@@ -9,8 +9,13 @@ public:
 	~Enemy();
 
     void render(RenderWindow& window) override;
-    bool isColliding(const FloatRect& bounds) const;
-    void update(float deltaTime, const Map& map, Player& player);
+    
+    void update(float deltaTime, const Map& map) override;
+
+    Vector2f getPosition() const override;
+
+    FloatRect getBounds() const override;
+
 
 private:
     CircleShape mShape;

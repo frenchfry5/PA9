@@ -3,12 +3,15 @@
 #include <SFML/Window.hpp>
 #include "Player.hpp"
 #include "Platform.hpp"
+#include "Enemy.hpp"
 
 
 int main() {
     Clock clock;
     RenderWindow window(VideoMode{ {800, 600} }, "Game Object Demo");
     Player player({ 100.f, 100.f });
+    Enemy e1({ 110.f, 115.f });
+    Map map;
     vector<Platform> platforms;
 
     while (window.isOpen()) {
@@ -20,7 +23,7 @@ int main() {
         }
 
         // Update logic
-        player.update(deltaTime);
+        player.update(deltaTime, map);
 
         
 

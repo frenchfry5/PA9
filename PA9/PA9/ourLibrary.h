@@ -2,6 +2,7 @@
 
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -36,3 +37,4 @@ using sf::Keyboard::Key;
 using sf::FloatRect;
 using sf::RectangleShape;
 using sf::CircleShape;
+using sf::Music;

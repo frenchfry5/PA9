@@ -17,6 +17,7 @@ public:
             nextPos.position.y -= jump * deltaTime;
             if (!map.isColliding(nextPos)) {
                 shape.move({ 0, -(jump * deltaTime) });
+
             }
         }
         // left
