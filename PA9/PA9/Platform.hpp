@@ -30,9 +30,6 @@ public:
 					case 4: // Slime
 						tile.setFillColor(sf::Color::Green);
 						break;
-					default:
-						tile.setFillColor(sf::Color::White);
-						break;
 					}
 					tile.setPosition(sf::Vector2f(x * tileSize, y * tileSize));
 					window.draw(tile);
@@ -67,7 +64,7 @@ public:
 	bool isColliding(const sf::FloatRect& bounds) const {
 		for (size_t x = 0; x < grid.size(); x++) {
 			for (size_t y = 0; y < grid[x].size(); y++) {
-				if (grid[x][y] == 1) {
+				if (grid[x][y] >= 1) {
 					sf::FloatRect tileRect(sf::Vector2f(x * tileSize, y * tileSize), sf::Vector2f(tileSize, tileSize));
 					if (bounds.findIntersection(tileRect)) {
 						return true;
