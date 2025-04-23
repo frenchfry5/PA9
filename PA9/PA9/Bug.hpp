@@ -19,12 +19,13 @@ public:
 		if (movingR) {
 			sf::FloatRect nextPos = shape.getGlobalBounds();
 			nextPos.position.x += speed * deltaTime;
-			nextPos.position.y += 1;
-			nextPos.position.y -= 2;
+			nextPos.position.y -= 1;
 			if (!pl.isColliding(nextPos)) {
 				shape.move({ speed * deltaTime , 0 });
+				
 			}
 			else {
+				
 				movingR = false;
 			}
 		}
@@ -37,6 +38,7 @@ public:
 				shape.move({ -(speed * deltaTime) , 0 });
 			}
 			else {
+				
 				movingR = true;
 			}
 		}
@@ -48,6 +50,9 @@ public:
 	}
 	sf::Vector2f getPosition() const override {
 		return shape.getPosition();
+	}
+	FloatRect getBounds() const override {
+		return shape.getGlobalBounds();
 	}
 private:
 	bool movingR = false;

@@ -30,6 +30,9 @@ public:
     sf::Vector2f getPosition() const override {
         return shape.getPosition();
     }
+    FloatRect getBounds() const override {
+        return shape.getGlobalBounds();
+    }
 protected:
     sf::RectangleShape shape;
     bool isGrounded = false;

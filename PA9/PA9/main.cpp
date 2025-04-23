@@ -9,9 +9,10 @@
 
 int main() {
     Clock clock;
-    RenderWindow window(VideoMode{ {800, 600} }, "Game Object Demo");
+    RenderWindow window(VideoMode::getDesktopMode(), "Game Object Demo");
     //vector<Platform>& platformVector;
-    Player player({ 100, 100 });
+    Vector2f spawnPos(100, 100);
+    Player player(spawnPos);
     Bug bug({ 150, 150 });
     sf::View camera;
     camera.setSize(Vector2f(800, 600));
@@ -20,6 +21,21 @@ int main() {
     sf::Image image;
     image.loadFromFile("DemoMap2.png");
     platforms.LoadFromImage(image);
+
+    sf::Font font("OptimusPrinceps.ttf");
+    sf::Text deathText(font);
+    deathText.setString("You Died!");
+    deathText.setCharacterSize(100);
+    deathText.setFillColor(sf::Color::Red);
+    deathText.setStyle(sf::Text::Bold);
+    deathText.setPosition({ 100, 100 });  // Adjust to center
+
+    sf::Text restartText(font);
+    restartText.setString("Press R to Restart");
+    restartText.setCharacterSize(20);
+    restartText.setFillColor(sf::Color::White);
+    restartText.setStyle(sf::Text::Bold);
+
     //map.createTest(11, 11);
     while (window.isOpen()) {
         float deltaTime = clock.restart().asSeconds();
@@ -29,16 +45,25 @@ int main() {
         }
 
         // Update logic
-        player.update(deltaTime, platforms);
+        player.update(deltaTime, platforms, bug);
         bug.update(deltaTime, platforms);
+
         camera.setCenter(player.getPosition());
         window.setView(camera);
-      
         // Render
         window.clear();
         platforms.render(window);
-        player.render(window);
         bug.render(window);
+        if (player.checkDead()) {
+            deathText.setPosition(window.getView().getCenter());
+            window.draw(deathText);
+            restartText.setPosition(window.getView().getCenter());
+            window.draw(restartText);
+        }
+        if (!player.checkDead()) {
+            player.render(window);
+        }
+
         window.display();
     }
 

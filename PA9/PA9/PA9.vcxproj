@@ -162,6 +162,9 @@
     <Image Include="DemoMap.png" />
     <Image Include="DemoMap2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="OptimusPrinceps.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

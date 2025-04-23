@@ -92,8 +92,12 @@ public:
 	sf::Vector2f getPosition() const override {
 		return Pos;
 	}
+	FloatRect getBounds() const override {
+		return bounds;
+	}
 private:
 	sf::Vector2f Pos;
+	FloatRect bounds;
 	vector <vector<int>> grid;
 	const float tileSize = 45;
 };
