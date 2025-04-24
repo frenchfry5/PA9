@@ -26,7 +26,27 @@ int main() {
     sf::View camera;
     camera.setSize(Vector2f(800, 600));
     camera.setCenter(Vector2f(400, 300));
-    Platform platforms;
+    Texture platformTexture;
+    if (!platformTexture.loadFromFile("binaryPlatformSprite-1.png.png"))
+    {
+        cout << "Failed to load texture!" << endl;
+    }
+    Texture lavaTexture;
+    if (!lavaTexture.loadFromFile("Lava.png"))
+    {
+        cout << "Failed to load texture!" << endl;
+    }
+    Texture iceTexture;
+    if (!iceTexture.loadFromFile("iceBlockSprite2.png"))
+    {
+        cout << "Failed to load texture!" << endl;
+    }
+    Texture slimeTexture;
+    if (!slimeTexture.loadFromFile("slimeCubeSprite.png"))
+    {
+        cout << "Failed to load texture!" << endl;
+    }
+    Platform platforms(platformTexture, lavaTexture, iceTexture, slimeTexture);
     sf::Image image;
     image.loadFromFile("DemoLevel.png");
     bugManager.LoadFromImage(image);

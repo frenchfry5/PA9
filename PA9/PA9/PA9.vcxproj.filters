@@ -29,6 +29,7 @@
     <Image Include="Lava w_animation.png" />
     <Image Include="slimeCubeSprite.png" />
     <Image Include="Mouse Player Sprite-6.png" />
+    <Image Include="Lava.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="OptimusPrinceps.ttf" />

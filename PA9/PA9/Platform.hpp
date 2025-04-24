@@ -4,7 +4,12 @@
 class Platform : public Obstacle
 {
 public:
-	Platform() {};
+	Platform(Texture& platformTexture, Texture& lavaTexture, Texture& iceTexture, Texture& slimeTexture)
+		: platformSprite(platformTexture), 
+		lavaSprite(lavaTexture), 
+		iceSprite(platformTexture), 
+		slimeSprite(platformTexture) {};
+
 	~Platform() {};
 	void update(float deltaTime) override {
 
@@ -35,13 +40,56 @@ public:
 						break;
 					}
 					tile.setPosition(sf::Vector2f(x * tileSize, y * tileSize));
+
 					window.draw(tile);
+					
+				}
+				y++;
+			}
+			x++;
+		}
+
+		for (const auto& column : grid) {
+			int y = 0;
+			for (const auto& cell : column) {
+				if (cell) {
+					sf::RectangleShape tile;
+					tile.setSize(sf::Vector2f(tileSize, tileSize));
+					switch (cell) {
+					case 1: // Normal Block
+						platformSprite.setPosition(tile.getPosition());
+						window.draw(platformSprite);
+						break;
+					case 2: // Lava
+						lavaSprite.setPosition(tile.getPosition());
+						window.draw(lavaSprite);
+						break;
+					case 3: // Ice
+						iceSprite.setPosition(tile.getPosition());
+						window.draw(iceSprite);
+						break;
+					case 4: // Slime
+						slimeSprite.setPosition(tile.getPosition());
+						window.draw(slimeSprite);
+						break;
+					case 5:
+						break;
+					}
+					tile.setPosition(sf::Vector2f(x * tileSize, y * tileSize));
+;
 				}
 				y++;
 			}
 			x++;
 		}
 	}
+
+
+
+
+
+
+
 	void LoadFromImage(sf::Image& image) {
 		grid.clear();
 		grid = vector(image.getSize().x, vector(image.getSize().y, 0));
@@ -106,5 +154,9 @@ private:
 	FloatRect bounds;
 	vector <vector<int>> grid;
 	const float tileSize = 55;
+	Sprite platformSprite;
+	Sprite lavaSprite;
+	Sprite iceSprite;
+	Sprite slimeSprite;
 };
 

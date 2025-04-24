@@ -172,6 +172,7 @@
     <Image Include="Enemy Bug_Error-1.png.png" />
     <Image Include="iceBlockSprite2.png" />
     <Image Include="Lava w_animation.png" />
+    <Image Include="Lava.png" />
     <Image Include="Mouse Player Sprite-6.png" />
     <Image Include="slimeCubeSprite.png" />
   </ItemGroup>
