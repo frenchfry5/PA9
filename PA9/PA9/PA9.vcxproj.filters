@@ -53,6 +53,12 @@
     <ClInclude Include="Bug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="BugManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+=======
+>>>>>>> dfcf5895519d207df8c6dddff7217a4e83a9c778
   </ItemGroup>
   <ItemGroup>
     <Image Include="DemoMap.png">
@@ -61,6 +67,22 @@
     <Image Include="DemoMap2.png">
       <Filter>Resource Files</Filter>
     </Image>
+<<<<<<< HEAD
+    <Image Include="EnemyTest.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="DemoLevel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BackgroundImage.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="OptimusPrinceps.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+=======
     <Image Include="iceBlockSprite2.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -76,5 +98,6 @@
     <Image Include="Enemy Bug_Error-1.png.png">
       <Filter>Resource Files</Filter>
     </Image>
+>>>>>>> dfcf5895519d207df8c6dddff7217a4e83a9c778
   </ItemGroup>
 </Project>

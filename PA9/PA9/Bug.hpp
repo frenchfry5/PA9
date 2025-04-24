@@ -4,6 +4,9 @@
 
 class Bug : public Enemy {
 public:
+	Bug() : Enemy() {
+
+	}
 	Bug(const Vector2f& pos) : Enemy(pos) {
 		shape.setFillColor(Color::Magenta);
 	}
@@ -13,14 +16,12 @@ public:
 	void update(float deltaTime) override {}
 	void update(float deltaTime, const Platform& pl) override {
 		Enemy::update(deltaTime, pl);
-
 		// if moving right keep moving right 
 		// else flip direction
 		if (movingR) {
 			sf::FloatRect nextPos = shape.getGlobalBounds();
 			nextPos.position.x += speed * deltaTime;
-			nextPos.position.y += 1;
-			nextPos.position.y -= 2;
+			nextPos.position.y -= 1.2;
 			if (!pl.isColliding(nextPos)) {
 				shape.move({ speed * deltaTime , 0 });
 			}
@@ -28,18 +29,19 @@ public:
 				movingR = false;
 			}
 		}
-		else if(movingR == false) {
+		else if (movingR == false) {
 			sf::FloatRect nextPos = shape.getGlobalBounds();
 			nextPos.position.x -= speed * deltaTime;
-			nextPos.position.y += 1;
-			nextPos.position.y -= 2;
+			nextPos.position.y -= 1.2;
 			if (!pl.isColliding(nextPos)) {
 				shape.move({ -(speed * deltaTime) , 0 });
 			}
 			else {
+
 				movingR = true;
 			}
 		}
+
 	}
 
 
@@ -49,6 +51,10 @@ public:
 	sf::Vector2f getPosition() const override {
 		return shape.getPosition();
 	}
+	FloatRect getBounds() const override {
+		return shape.getGlobalBounds();
+	}
 private:
+	vector<sf::Vector2f> bugPositions;
 	bool movingR = false;
 };

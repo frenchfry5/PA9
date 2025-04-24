@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bug.hpp" />
+    <ClInclude Include="BugManager.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="Map.hpp" />
@@ -159,6 +160,16 @@
     <ClInclude Include="Player.hpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Image Include="BackgroundImage.png" />
+    <Image Include="DemoLevel.png" />
+    <Image Include="DemoMap.png" />
+    <Image Include="DemoMap2.png" />
+    <Image Include="EnemyTest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="OptimusPrinceps.ttf" />
+=======
     <Image Include="binaryPlatformSprite-1.png.png" />
     <Image Include="DemoMap.png" />
     <Image Include="DemoMap2.png" />
@@ -166,6 +177,7 @@
     <Image Include="iceBlockSprite2.png" />
     <Image Include="Lava w_animation.png" />
     <Image Include="slimeCubeSprite.png" />
+>>>>>>> dfcf5895519d207df8c6dddff7217a4e83a9c778
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
