@@ -7,10 +7,19 @@ class Player : public GameObject {
 public:
 
 
-    Player(const Vector2f& position) {
+    Player(const Vector2f& position, Texture& playerTexture) 
+        : playerSprite(playerTexture)
+
+    {
+       
+        
         shape.setSize({ 50, 50 });
         shape.setFillColor(Color::Green);
         shape.setPosition(position);
+
+        playerSprite.setPosition(position);
+        playerSprite.setScale({ 1.5f, 1.5f });
+
     }
 
     void update(float deltaTime) override {
@@ -24,16 +33,29 @@ public:
             nextPos.position.y -= jump * deltaTime;
             nextPos.position.y += .5;
 
+            playerSprite.setPosition(shape.getPosition());
+
             // if there is no collision, then move player
             if (!pl.isColliding(nextPos)) {
                 shape.move({ 0, -(jump * deltaTime) });
+                playerSprite.setPosition(shape.getPosition());
             }
         }
         if (isKeyPressed(Key::A)) {
             horizVelocity -= speed * deltaTime;
+            if (playerSprite.getScale().x > 0)
+            {
+                playerSprite.setScale({ 1.5f, 1.5f });
+            }
+            playerSprite.setPosition(shape.getPosition());
         }
         if (isKeyPressed(Key::D)) {
             horizVelocity += speed * deltaTime;
+            if (playerSprite.getScale().x < 0)
+            {
+                playerSprite.setScale({ 1.5f, 1.5f });
+            }
+            playerSprite.setPosition(shape.getPosition());
         }
         // apply friction
         horizVelocity *= friction;
@@ -43,11 +65,16 @@ public:
         sf::FloatRect nextPos = shape.getGlobalBounds();
         nextPos.position.x += horizVelocity;
         nextPos.position.y -= 1;
+
+        playerSprite.setPosition(shape.getPosition());
+
         if (!pl.isColliding(nextPos)) {
             shape.move({ horizVelocity, 0 });
+            playerSprite.setPosition(shape.getPosition());
         }
         else {
             horizVelocity = 0;
+            playerSprite.setPosition(shape.getPosition());
         }
 
 
@@ -57,13 +84,17 @@ public:
             // gravity as in falling
             vertVelocity += gravity;
             shape.move({ 0, vertVelocity * deltaTime });
+            playerSprite.setPosition(shape.getPosition());
         }
         else {
             vertVelocity = 1;
             isGrounded = true;
+            playerSprite.setPosition(shape.getPosition());
+
             for (const auto& bug : bugs) {
                 if (this->getBounds().findIntersection(bug.getBounds())) {
                     isDead = true;
+                    playerSprite.setPosition(shape.getPosition());
                     break;
                 }
             }
@@ -97,7 +128,7 @@ public:
         }
     }
     void render(RenderWindow& window) override {
-        window.draw(shape);
+        window.draw(playerSprite);
     }
     sf::Vector2f getPosition() const override {
         return shape.getPosition();
@@ -160,4 +191,6 @@ private:
     float speed = 60;
     float vertVelocity = 1;
     float gravity = 3;
+    Sprite playerSprite;
+   
 };
