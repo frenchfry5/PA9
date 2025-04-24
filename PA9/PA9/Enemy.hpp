@@ -4,6 +4,9 @@
 
 class Enemy : public GameObject {
 public:
+    Enemy() {
+
+    }
     Enemy(const Vector2f& position) {
         shape.setSize({ 50, 50 });
         shape.setFillColor(Color::Cyan);
@@ -24,7 +27,7 @@ public:
             isGrounded = true;
         }
     }
-    void render(RenderWindow& window) override {
+    virtual void render(RenderWindow& window) override {
         window.draw(shape);
     }
     sf::Vector2f getPosition() const override {
@@ -33,7 +36,24 @@ public:
     FloatRect getBounds() const override {
         return shape.getGlobalBounds();
     }
+    //void LoadFromImage(sf::Image& image) {
+    //    const float tileSize = 55;
+    //    grid.clear();
+    //    grid = vector(image.getSize().x, vector(image.getSize().y, 0));
+
+    //    for (size_t x = 0; x < grid.size(); x++) {
+    //        for (size_t y = 0; y < grid[x].size(); y++) {
+    //            Color colorPixel = image.getPixel(sf::Vector2u(x, y));
+    //            if (colorPixel == Color::Magenta) {
+    //                cout << "Bug" << endl;
+    //                grid[x][y] = 5; // 1 for Bug
+    //                /*inline constexpr Color Color::Magenta(255, 0, 255);*/
+    //            }
+    //        }
+    //    }
+    //}
 protected:
+    vector <vector<int>> grid;
     sf::RectangleShape shape;
     bool isGrounded = false;
     float speed = 100;

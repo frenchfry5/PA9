@@ -53,12 +53,18 @@
     <ClInclude Include="Bug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BugManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="DemoMap.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="DemoMap2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EnemyTest.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

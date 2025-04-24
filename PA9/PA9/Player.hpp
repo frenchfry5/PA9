@@ -16,7 +16,7 @@ public:
     void update(float deltaTime) override {
 
     }
-    void update(float deltaTime, const Platform& pl, const Bug& bugs) {
+    void update(float deltaTime, const Platform& pl, const vector<Bug>& bugs) {
         // up
         if (isKeyPressed(Key::W) && isGrounded) {
             // check if any collision above
@@ -49,7 +49,7 @@ public:
             horizVelocity = 0;
         }
 
- 
+
         // if anything on the map is not colliding with the player, then the player must be in the air, so falling
         // else the player must be on the ground and not falling
         if (!pl.isColliding(shape.getGlobalBounds())) {
@@ -57,12 +57,16 @@ public:
             vertVelocity += gravity;
             shape.move({ 0, vertVelocity * deltaTime });
         }
-        else if (this->isColliding(bugs)) {
-            isDead = true;
-        }
         else {
             vertVelocity = 1;
             isGrounded = true;
+
+            for (const auto& bug : bugs) {
+                if (this->getBounds().findIntersection(bug.getBounds())) {
+                    isDead = true;
+                    break;
+                }
+            }
         }
         int tileType = pl.getTileType(shape.getGlobalBounds());
 
@@ -113,6 +117,28 @@ public:
     }
     bool checkDead() const {
         return isDead;
+    }
+    void LoadFromImage(sf::Image& image) {
+        //grid.clear();
+        //grid = vector(image.getSize().x, vector(image.getSize().y, 0));
+
+        //for (size_t x = 0; x < grid.size(); x++) {
+        //    for (size_t y = 0; y < grid[x].size(); y++) {
+        //        Color colorPixel = image.getPixel(sf::Vector2u(x, y));
+        //        if (colorPixel == Color::Black) {
+        //            grid[x][y] = 1; // 1 for block
+        //        }
+        //        if (colorPixel == Color::Red) {
+        //            grid[x][y] = 2; // 2 for lava
+        //        }
+        //        if (colorPixel == Color::Blue) {
+        //            grid[x][y] = 3; // for Ice
+        //        }
+        //        if (colorPixel == Color::Green) {
+        //            grid[x][y] = 4; // for Slime or bouncy
+        //        }
+        //    }
+        //}
     }
 
 private:

@@ -4,6 +4,9 @@
 
 class Bug : public Enemy {
 public:
+	Bug() : Enemy() {
+
+	}
 	Bug(const Vector2f& pos) : Enemy(pos) {
 		shape.setFillColor(Color::Magenta);
 	}
@@ -55,5 +58,6 @@ public:
 		return shape.getGlobalBounds();
 	}
 private:
+	vector<sf::Vector2f> bugPositions;
 	bool movingR = false;
 };

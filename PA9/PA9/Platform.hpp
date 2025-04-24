@@ -14,7 +14,7 @@ public:
 		for (const auto& column : grid) {
 			int y = 0;
 			for (const auto& cell : column) {
-				if (cell ) {
+				if (cell) {
 					sf::RectangleShape tile;
 					tile.setSize(sf::Vector2f(tileSize, tileSize));
 					switch (cell) {
@@ -99,6 +99,6 @@ private:
 	sf::Vector2f Pos;
 	FloatRect bounds;
 	vector <vector<int>> grid;
-	const float tileSize = 45;
+	const float tileSize = 55;
 };
 

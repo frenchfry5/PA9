@@ -3,8 +3,8 @@
 #include <SFML/Window.hpp>
 #include "Player.hpp"
 #include "Platform.hpp"
-#include "Bug.hpp"
 #include "Map.hpp"
+#include "BugManager.hpp"
 #include "ourLibrary.h"
 
 int main() {
@@ -13,13 +13,14 @@ int main() {
     //vector<Platform>& platformVector;
     Vector2f spawnPos(100, 100);
     Player player(spawnPos);
-    Bug bug({ 150, 150 });
+    BugManager bugManager;
     sf::View camera;
     camera.setSize(Vector2f(800, 600));
     camera.setCenter(Vector2f(400, 300));
     Platform platforms;
     sf::Image image;
-    image.loadFromFile("DemoMap2.png");
+    image.loadFromFile("EnemyTest.png");
+    bugManager.LoadFromImage(image);
     platforms.LoadFromImage(image);
 
     sf::Font font("OptimusPrinceps.ttf");
@@ -52,11 +53,11 @@ int main() {
         // Render
         window.clear();
         platforms.render(window);
-        bug.render(window);
+        bugManager.render(window);
         if (!player.checkDead()) {
             player.render(window);
-            player.update(deltaTime, platforms, bug);
-            bug.update(deltaTime, platforms);
+            player.update(deltaTime, platforms, bugManager.getBugs());
+            bugManager.update(deltaTime, platforms);
         }
         if (player.checkDead()) {
             deathText.setPosition(window.getView().getCenter() - Vector2f({175, 100}));
