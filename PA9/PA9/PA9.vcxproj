@@ -159,8 +159,13 @@
     <ClInclude Include="Player.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="binaryPlatformSprite-1.png.png" />
     <Image Include="DemoMap.png" />
     <Image Include="DemoMap2.png" />
+    <Image Include="Enemy Bug_Error-1.png.png" />
+    <Image Include="iceBlockSprite2.png" />
+    <Image Include="Lava w_animation.png" />
+    <Image Include="slimeCubeSprite.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

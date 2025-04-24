@@ -27,9 +27,6 @@
     <ClCompile Include="Platform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="global.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.hpp">
@@ -47,13 +44,13 @@
     <ClInclude Include="Platform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="global.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ourLibrary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Map.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,6 +59,21 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="DemoMap2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="iceBlockSprite2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="slimeCubeSprite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="binaryPlatformSprite-1.png.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Lava w_animation.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Enemy Bug_Error-1.png.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
