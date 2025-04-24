@@ -16,35 +16,32 @@ public:
 	void update(float deltaTime) override {}
 	void update(float deltaTime, const Platform& pl) override {
 		Enemy::update(deltaTime, pl);
-
 		// if moving right keep moving right 
 		// else flip direction
 		if (movingR) {
 			sf::FloatRect nextPos = shape.getGlobalBounds();
 			nextPos.position.x += speed * deltaTime;
-			nextPos.position.y -= 1;
+			nextPos.position.y -= 1.2;
 			if (!pl.isColliding(nextPos)) {
 				shape.move({ speed * deltaTime , 0 });
-				
 			}
 			else {
-				
 				movingR = false;
 			}
 		}
-		else if(movingR == false) {
+		else if (movingR == false) {
 			sf::FloatRect nextPos = shape.getGlobalBounds();
 			nextPos.position.x -= speed * deltaTime;
-			nextPos.position.y += 1;
-			nextPos.position.y -= 2;
+			nextPos.position.y -= 1.2;
 			if (!pl.isColliding(nextPos)) {
 				shape.move({ -(speed * deltaTime) , 0 });
 			}
 			else {
-				
+
 				movingR = true;
 			}
 		}
+
 	}
 
 

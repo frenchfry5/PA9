@@ -10,6 +10,8 @@ public:
             for (unsigned int y = 0; y < image.getSize().y; ++y) {
                 Color colorPixel = image.getPixel(sf::Vector2u(x, y));
                 if (colorPixel == Color::Magenta) {
+                    // pushback only allows one bug to move
+                    // chatgpt fix
                     bugs.emplace_back(Vector2f(x * tileSize, y * tileSize));
                 }
             }

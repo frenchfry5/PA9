@@ -22,6 +22,7 @@ public:
             // check if any collision above
             sf::FloatRect nextPos = shape.getGlobalBounds();
             nextPos.position.y -= jump * deltaTime;
+            nextPos.position.y += .5;
 
             // if there is no collision, then move player
             if (!pl.isColliding(nextPos)) {
@@ -34,11 +35,11 @@ public:
         if (isKeyPressed(Key::D)) {
             horizVelocity += speed * deltaTime;
         }
-        // Apply friction
+        // apply friction
         horizVelocity *= friction;
         if (std::abs(horizVelocity) < 0.01f) horizVelocity = 0;
 
-        // Horizontal movement with collision
+        // horizontal movement with collision
         sf::FloatRect nextPos = shape.getGlobalBounds();
         nextPos.position.x += horizVelocity;
         nextPos.position.y -= 1;
@@ -72,11 +73,11 @@ public:
 
         switch (tileType) {
         case 1: // Normal solid block
-            speed = 60;
+            isGrounded = true;
             /*cout << "Normal block" << endl;*/
             break;
         case 2: // Lava
-            speed = 60;
+            isDead = true;
             /*cout << "Lava block" << endl;*/
             break;
         case 3: // Ice
@@ -146,7 +147,7 @@ private:
     bool isGrounded = false;
     bool isDead = false;
     float horizVelocity = 0;
-    float friction = 0.9;
+    float friction = 0.8;
     float jump = 700;
     float speed = 60;
     float vertVelocity = 1;

@@ -18,6 +18,7 @@ public:
         // gravity common to most enimies
         vertVelocity += gravity;
         sf::FloatRect bounds = shape.getGlobalBounds();
+        bounds.position.y += 1;
         if (!pl.isColliding(bounds)) {
             shape.move({ 0, vertVelocity * deltaTime });
             isGrounded = false;
