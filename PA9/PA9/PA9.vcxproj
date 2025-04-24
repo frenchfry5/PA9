@@ -168,13 +168,12 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="OptimusPrinceps.ttf" />
-
     <Image Include="binaryPlatformSprite-1.png.png" />
     <Image Include="Enemy Bug_Error-1.png.png" />
     <Image Include="iceBlockSprite2.png" />
     <Image Include="Lava w_animation.png" />
+    <Image Include="Mouse Player Sprite-6.png" />
     <Image Include="slimeCubeSprite.png" />
-
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,103 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstacle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="Bug.hpp" />
+    <ClInclude Include="BugManager.hpp" />
+    <ClInclude Include="Enemy.hpp" />
+    <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="Map.hpp" />
+    <ClInclude Include="Obstacle.hpp" />
+    <ClInclude Include="ourLibrary.h" />
+    <ClInclude Include="Platform.hpp" />
+    <ClInclude Include="Player.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObject.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstacle.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ourLibrary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bug.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="BugManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-=======
->>>>>>> dfcf5895519d207df8c6dddff7217a4e83a9c778
+    <Image Include="BackgroundImage.png" />
+    <Image Include="DemoLevel.png" />
+    <Image Include="DemoMap.png" />
+    <Image Include="DemoMap2.png" />
+    <Image Include="EnemyTest.png" />
+    <Image Include="binaryPlatformSprite-1.png.png" />
+    <Image Include="Enemy Bug_Error-1.png.png" />
+    <Image Include="iceBlockSprite2.png" />
+    <Image Include="Lava w_animation.png" />
+    <Image Include="slimeCubeSprite.png" />
+    <Image Include="Mouse Player Sprite-6.png" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="DemoMap.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="DemoMap2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-<<<<<<< HEAD
-    <Image Include="EnemyTest.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="DemoLevel.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="BackgroundImage.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="OptimusPrinceps.ttf">
-      <Filter>Resource Files</Filter>
-    </Font>
-=======
-    <Image Include="iceBlockSprite2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="slimeCubeSprite.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="binaryPlatformSprite-1.png.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Lava w_animation.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Enemy Bug_Error-1.png.png">
-      <Filter>Resource Files</Filter>
-    </Image>
->>>>>>> dfcf5895519d207df8c6dddff7217a4e83a9c778
+    <Font Include="OptimusPrinceps.ttf" />
   </ItemGroup>
 </Project>
