@@ -61,7 +61,6 @@ public:
         else {
             vertVelocity = 1;
             isGrounded = true;
-
             for (const auto& bug : bugs) {
                 if (this->getBounds().findIntersection(bug.getBounds())) {
                     isDead = true;
@@ -72,23 +71,28 @@ public:
         int tileType = pl.getTileType(shape.getGlobalBounds());
 
         switch (tileType) {
-        case 1: // Normal solid block
+        case 1: // normal solid block
+            speed = 60;
             isGrounded = true;
             /*cout << "Normal block" << endl;*/
             break;
-        case 2: // Lava
+        case 2: // lava
             isDead = true;
             /*cout << "Lava block" << endl;*/
             break;
-        case 3: // Ice
+        case 3: // ice
             speed = 100;
             /*cout << "Ice block" << endl;*/
             break;
-        case 4: // Slime
+        case 4: // slime
             isGrounded = false;
+            speed = 60;
             vertVelocity = -jump * 1.5f;
             shape.move({ 0, vertVelocity * deltaTime });
+            break;
             /*cout << "Slime block" << endl;*/
+        case 5: // victory
+            Victory = true;
             break;
         }
     }
@@ -99,6 +103,7 @@ public:
         return shape.getPosition();
     }
     void resetState(Vector2f spawnPosition) {
+        Victory = false;
         isDead = false;
         isGrounded = false;
         speed = 60;
@@ -141,11 +146,14 @@ public:
         //    }
         //}
     }
-
+    bool checkVictory() {
+        return Victory;
+    }
 private:
     sf::RectangleShape shape;
     bool isGrounded = false;
     bool isDead = false;
+    bool Victory = false;
     float horizVelocity = 0;
     float friction = 0.8;
     float jump = 700;

@@ -67,6 +67,12 @@
     <Image Include="EnemyTest.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="DemoLevel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BackgroundImage.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="OptimusPrinceps.ttf">

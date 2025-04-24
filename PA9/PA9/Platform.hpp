@@ -19,16 +19,19 @@ public:
 					tile.setSize(sf::Vector2f(tileSize, tileSize));
 					switch (cell) {
 					case 1: // Normal Block
-						tile.setFillColor(sf::Color::Blue);
+						tile.setFillColor(sf::Color::White);
 						break;
 					case 2: // Lava
 						tile.setFillColor(sf::Color::Red);
 						break;
 					case 3: // Ice
-						tile.setFillColor(sf::Color::Cyan);
+						tile.setFillColor(sf::Color::Blue);
 						break;
 					case 4: // Slime
 						tile.setFillColor(sf::Color::Green);
+						break;
+					case 5:
+						tile.setFillColor(sf::Color::Cyan);
 						break;
 					}
 					tile.setPosition(sf::Vector2f(x * tileSize, y * tileSize));
@@ -57,6 +60,9 @@ public:
 				}
 				if (colorPixel == Color::Green) {
 					grid[x][y] = 4; // for Slime or bouncy
+				}
+				if (colorPixel == Color::Cyan) {
+					grid[x][y] = 5;
 				}
 			}
 		}
