@@ -160,7 +160,6 @@
     <ClInclude Include="Player.hpp" />
   </ItemGroup>
   <ItemGroup>
-
     <Image Include="BackgroundImage.png" />
     <Image Include="DemoLevel.png" />
     <Image Include="DemoMap.png" />
